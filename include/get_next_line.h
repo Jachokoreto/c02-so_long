@@ -17,11 +17,11 @@
 # include <stddef.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
+#  define BUFFER_SIZE 1
 # endif
 
 char	*ft_strchr(const char *s, int c);
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin_2(char const *s1, char const *s2);
 char	*ft_strdup(const char *s);
 int		ft_strlen_2(const char *s);
 char	*get_next_line(int fd);

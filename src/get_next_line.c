@@ -71,7 +71,7 @@ void	join_line(char **line, char *buffer, int *r)
 	if (*buffer && *r > 0)
 	{
 		tmp = *line;
-		*line = ft_strjoin(tmp, buffer);
+		*line = ft_strjoin_2(tmp, buffer);
 		free(tmp);
 	}
 	tmp = ft_strchr(*line, '\n');

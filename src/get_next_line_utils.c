@@ -19,7 +19,7 @@ char	*ft_strchr(const char *s, int c)
 
 	if (!*s)
 		return (NULL);
-	len = ft_strlen(s);
+	len = ft_strlen_2(s);
 	ptr = (char *)s;
 	while (len-- >= 0)
 	{
@@ -30,7 +30,7 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin_2(char const *s1, char const *s2)
 {
 	char	*s;
 	int		s1_len;
@@ -38,8 +38,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	if (!s1 || !s2)
 		return (NULL);
-	s1_len = ft_strlen(s1);
-	s2_len = ft_strlen(s2);
+	s1_len = ft_strlen_2(s1);
+	s2_len = ft_strlen_2(s2);
 	s = (char *)malloc(sizeof(char) * (s1_len + s2_len + 1));
 	if (s == NULL)
 		return (NULL);
@@ -56,7 +56,7 @@ char	*ft_strdup(const char *s)
 	char	*dup;
 	int		i;
 
-	dup = (char *)malloc(sizeof (*dup) * (ft_strlen(s) + 1));
+	dup = (char *)malloc(sizeof (*dup) * (ft_strlen_2(s) + 1));
 	if (dup == NULL)
 		return (NULL);
 	i = 0;

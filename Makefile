@@ -1,29 +1,35 @@
 NAME = so_long
 
 CC = gcc
-CC_FLAGS = -Wall -Werror -Wextra
+CC_FLAGS = -Wall -Werror -Wextra 
 
-SRC = $(shell find ./src)
-OBJ = $(SRC:%.c=%.o)
+SRC_DIR = ./src
+OBJ_DIR = ./obj
 
-DEPS = $(shell find ./include)
+SRC := $(shell find $(SRC_DIR) -name "*.c" -execdir basename {} \;)
+OBJ := $(SRC:%.c=$(OBJ_DIR)/%.o)
 
+INCLUDE = include
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(OBJ) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
-%.o: %.c
-	$(CC) $(CC_FLAGS) -Imlx -c $< -o $@
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@mkdir -p $(OBJ_DIR)
+	$(CC) $(CC_FLAGS) -Imlx -I$(INCLUDE) -c $< -o $@
 
-test: $(NAME)
+run: clean all
+	clear
 	./so_long
 
+test:
+	$(CC) test.c -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	./$(NAME)
 
-
-clean: 
-	rm -rf *.o
+clean:
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
 	rm $(NAME)

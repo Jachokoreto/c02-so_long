@@ -10,7 +10,7 @@ int	main(void)
 	int		img_height;
 
 	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 600,400, "bloop");
+	mlx_win = mlx_new_window(mlx, 1024, 768, "bloop");
 	img = mlx_xpm_file_to_image(mlx, relative_path, &img_width, &img_height);
 	mlx_put_image_to_window(mlx, mlx_win, img, 100, 0);
 	mlx_put_image_to_window(mlx, mlx_win, img, 100, 20);
