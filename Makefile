@@ -14,7 +14,7 @@ INCLUDE = include
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	$(CC) $(OBJ) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME) -fsanitize=address -g3
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(OBJ_DIR)
@@ -25,8 +25,8 @@ run: clean all
 	./so_long
 
 test:
-	$(CC) test.c -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
-	./$(NAME)
+	$(CC) test.c -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME) -fsanitize=address -g3
+	# ./$(NAME)
 
 clean:
 	rm -rf $(OBJ_DIR)
