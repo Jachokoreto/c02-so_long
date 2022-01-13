@@ -24,4 +24,5 @@ void    load_images(t_root *root)
     root->wall[3] = mlx_xpm_file_to_image(root->mlx, "sprite/wall/3.xpm", &w, &h);
     root->wall[4] = mlx_xpm_file_to_image(root->mlx, "sprite/wall/4.xpm", &w, &h);
 
+    root->exit = mlx_xpm_file_to_image(root->mlx, "sprite/exit/0.xpm", &w, &h);
 }

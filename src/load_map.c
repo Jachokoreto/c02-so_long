@@ -113,6 +113,7 @@ void    init_map(t_root *root)
     int j;
 
     printf("hello from init map\n");
+    root->collectible_count = 0;
     root->map_data = malloc(sizeof(void***) * root->map_height);
     i = -1;
     while (++i < root->map_height)
@@ -127,7 +128,12 @@ void    init_map(t_root *root)
             if (root->map[i][j] == '1')
                 root->map_data[i][j][1] = root->wall[i * j % 5];
             else if (root->map[i][j] == 'C')
+            {
                 root->map_data[i][j][1] = root->collectible;
+                root->collectible_count++;
+            }
+            else if (root->map[i][j] == 'E')
+                root->map_data[i][j][1] = root->exit;
             else if (root->map[i][j] == 'P')
             {
                 root->map_data[i][j][1] = NULL;

@@ -1,13 +1,13 @@
 #include "so_long.h"
 # include <mlx.h>
-
+// # include <stdlib.h>
 
 int main(void)
 {
     t_root  root;
 
     root.mlx = mlx_init();
-    root.mlx_win = mlx_new_window(root.mlx, 1024, 768, "jaja");
+    root.mlx_win = mlx_new_window(root.mlx, WIN_SIZE, WIN_SIZE, "jaja");
 
     // int w;
     // int h;
@@ -22,6 +22,12 @@ int main(void)
     load_map(&root);
     draw_map(&root);
     mlx_key_hook(root.mlx_win, key_hook, &root);
+    mlx_hook(root.mlx_win, 17, 0, exit_game, &root);
     mlx_loop(root.mlx);
+
+    // system("leaks so_long");
     return (0);
 }
+
+// print errors
+// animation...?
