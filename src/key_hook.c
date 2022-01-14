@@ -8,22 +8,22 @@ int    key_hook(int keycode, t_root *root)
 
 	printf("PLAYER INDEX: x=%d, y=%d\n", root->offset_x / 64, root->offset_y / 64);
 
-	if (keycode == 126)
+	if (keycode == 126 || keycode == 13)
 	{
 		if (root->map[(root->offset_y + 32) / 64 - 1][root->offset_x / 64] != '1')
 			root->offset_y -= 64;		
 	}
-	if (keycode == 125)
+	if (keycode == 125 || keycode == 1)
 	{
 		if (root->map[root->offset_y / 64 + 1][root->offset_x / 64] != '1') //root->offset_y / 64 < root->map_height - 2
 			root->offset_y += 64;
 	}
-	if (keycode == 124)
+	if (keycode == 124 || keycode == 2)
 	{
 		if (root->map[root->offset_y / 64][root->offset_x / 64 + 1] != '1') //root->offset_y / 64 < root->map_height - 2
 			root->offset_x += 64;
 	}
-	if (keycode == 123)
+	if (keycode == 123 || keycode == 0)
 	{
 		if (root->map[root->offset_y / 64][(root->offset_x + 32) / 64 - 1] != '1')
 			root->offset_x -= 64;
@@ -40,8 +40,9 @@ int    key_hook(int keycode, t_root *root)
 	}
 
 	if (root->collectible_count == 0 && 
-			root->map[root->offset_y / 64-1][root->offset_x / 64-1] == 'E')
+			root->map[root->offset_y / 64][root->offset_x / 64] == 'E')
 	{
+		printf("Exiting;");
 		exit_game(root);
 	}
 		

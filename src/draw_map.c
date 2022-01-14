@@ -14,9 +14,9 @@ void    draw_map(t_root *root)
     corner_x = WIN_SIZE/2 - root->offset_x;
     corner_y = WIN_SIZE/2 - root->offset_y;
 
-    printf("corner_x: %d, corner_y: %d\n", corner_x, corner_y);
-    printf("offset_x: %d, offset_y: %d\n", root->offset_x, root->offset_y);
-    printf("map_height: %d\n", root->map_height);
+    // printf("corner_x: %d, corner_y: %d\n", corner_x, corner_y);
+    // printf("offset_x: %d, offset_y: %d\n", root->offset_x, root->offset_y);
+    // printf("map_height: %d\n", root->map_height);
 
     i = -1;
     while (++i < root->map_height)

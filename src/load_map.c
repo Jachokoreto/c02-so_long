@@ -13,22 +13,19 @@ void    load_map(t_root *root)
     char*   tmp;
     char*   line;
     
-    fd = open("map.ber", O_RDONLY);
+    fd = open("simple.ber", O_RDONLY);
+    if (fd == -1)
+        exit_error("Error\nCan't open file", root, 1);
     line = ft_strdup("");
     while (1)
     {
         tmp = get_next_line(fd);
-        printf("%s\n", tmp);
-
         if (!tmp)
             break; 
         line = ft_strjoin(line, tmp);
 
     }
-        printf("map:\n%s\n", line);
-
     root->map = ft_split(line, '\n');
-
     if (root->map && check_map(root) == 1)
     {
         printf("check map result: valid\n");
@@ -102,7 +99,6 @@ int check_map(t_root *root)
             return (0);
         }
     }
-    printf("exit:%d, start:%d, collectible:%d\n", have_exit, have_start, have_collectible);
     root->map_height = i;
     return (1);
 }
@@ -112,7 +108,6 @@ void    init_map(t_root *root)
     int i;
     int j;
 
-    printf("hello from init map\n");
     root->collectible_count = 0;
     root->map_data = malloc(sizeof(void***) * root->map_height);
     i = -1;
@@ -144,7 +139,5 @@ void    init_map(t_root *root)
                 root->map_data[i][j][1] = NULL;
         }
     }    
-
-    printf("done init map\n");
 }
 

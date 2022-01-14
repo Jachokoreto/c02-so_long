@@ -6,7 +6,7 @@
 
 # include <stdio.h>
 
-#define	WIN_SIZE 1000
+#define	WIN_SIZE 600
 
 typedef struct s_root
 {
@@ -38,5 +38,5 @@ void	load_map(t_root *root);
 void	draw_map(t_root *root);
 int		key_hook(int keycode, t_root *root);
 int		exit_game(t_root *root);
-
+void	exit_error(char *msg, t_root *root, int state);
 #endif

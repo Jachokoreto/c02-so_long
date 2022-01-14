@@ -22,7 +22,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 
 run: clean all
 	clear
-	./so_long
+	# ./so_long
 
 test:
 	$(CC) test.c -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME) -fsanitize=address -g3
