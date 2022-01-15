@@ -1,37 +1,23 @@
-NAME = so_long
-
-CC = gcc
-CC_FLAGS = -Wall -Werror -Wextra 
-
-SRC_DIR = ./src
-OBJ_DIR = ./obj
-
-SRC := $(shell find $(SRC_DIR) -name "*.c" -execdir basename {} \;)
-OBJ := $(SRC:%.c=$(OBJ_DIR)/%.o)
-
+SRCS = src/*.c
 INCLUDE = include
+CC = gcc
+# CC_FLAGS = -Wall -Werror -Wextra -fsanitize=address
+MLX_FLAGS_LINUX = -Lmlx_linux -lmlx_linux -I/usr/include -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+MLX_FLAGS_MAC = -Lmlx -lmlx -framework OpenGL -framework AppKit
+NAME=so_long
 
-all: $(NAME)
+all : 
+	@echo "make [OS]"
 
-$(NAME): $(OBJ)
-	$(CC) $(OBJ) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME) -fsanitize=address -g3
+linux :
+	cd mlx_linux && ./configure
+	$(CC) $(CC_FLAGS) $(SRCS)  $(MLX_FLAGS_LINUX)  -I$(INCLUDE) -o $(NAME)
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	@mkdir -p $(OBJ_DIR)
-	$(CC) $(CC_FLAGS) -Imlx -I$(INCLUDE) -c $< -o $@
+mac : 
+	$(CC) $(CC_FLAGS) $(MLX_FLAGS_MAC) $(SRCS) -I$(INCLUDE) -o $(NAME)
 
-run: clean all
-	clear
-	# ./so_long
+clean :
+	rm -rf *.o
 
-test:
-	$(CC) test.c -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME) -fsanitize=address -g3
-	# ./$(NAME)
-
-clean:
-	rm -rf $(OBJ_DIR)
-
-fclean: clean
-	rm $(NAME)
-
-re: fclean all
+fclean : clean
+	rm -rf $(NAME)

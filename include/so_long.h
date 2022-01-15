@@ -3,7 +3,6 @@
 # include "get_next_line.h"
 # include "libft.h"
 # include <mlx.h>
-
 # include <stdio.h>
 
 #define	WIN_SIZE 600
@@ -11,7 +10,7 @@
 typedef struct s_root
 {
 	void	*mlx;
-	void	*mlx_win;	
+	void	*mlx_win;
 	void	*grass[3];
 	void	*player[4];
 	void	*wall[5];
