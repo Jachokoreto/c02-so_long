@@ -6,7 +6,7 @@
 /*   By: jatan <jatan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 07:30:30 by jatan             #+#    #+#             */
-/*   Updated: 2022/01/16 13:04:23 by jatan            ###   ########.fr       */
+/*   Updated: 2022/01/16 14:53:28 by jatan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	key_hook(int key, t_root *root)
 {
 	void	*blank;
 
-	if (key == 126 || key == 125 || key == 124 || key == 123)
+	if (key == 13 || key == 0 || key == 1 || key == 2)
 		wasd_keys(key, root);
 	if (key == 53)
 		exit_game(root);
@@ -39,29 +39,28 @@ int	key_hook(int key, t_root *root)
 
 void	wasd_keys(int key, t_root *root)
 {
-	if (key == 126)
+	if (key == 13 && root->map[(root->offset_y + 32) / 64 - 1]
+		[root->offset_x / 64] != '1')
 	{
-		if (root->map[(root->offset_y + 32) / 64 - 1]
-			[root->offset_x / 64] != '1')
-			root->offset_y -= 64;
+		ft_putendl_fd(ft_strjoin("Steps: ", ft_itoa(++root->player_steps)), 1);
+		root->offset_y -= 64;
 	}
-	else if (key == 125)
+	else if (key == 1 && root->map[root->offset_y / 64 + 1]
+		[root->offset_x / 64] != '1')
 	{
-		if (root->map[root->offset_y / 64 + 1]
-			[root->offset_x / 64] != '1')
-			root->offset_y += 64;
+		ft_putendl_fd(ft_strjoin("Steps: ", ft_itoa(++root->player_steps)), 1);
+		root->offset_y += 64;
 	}
-	else if (key == 124)
+	else if (key == 2 && root->map[root->offset_y / 64]
+		[root->offset_x / 64 + 1] != '1')
 	{
-		if (root->map[root->offset_y / 64]
-			[root->offset_x / 64 + 1] != '1')
-			root->offset_x += 64;
+		ft_putendl_fd(ft_strjoin("Steps: ", ft_itoa(++root->player_steps)), 1);
+		root->offset_x += 64;
 	}
-	else if (key == 123)
+	else if (key == 0 && root->map[root->offset_y / 64]
+		[(root->offset_x + 32) / 64 - 1] != '1')
 	{
-		if (root->map[root->offset_y / 64]
-			[(root->offset_x + 32) / 64 - 1] != '1')
-			root->offset_x -= 64;
+		ft_putendl_fd(ft_strjoin("Steps: ", ft_itoa(++root->player_steps)), 1);
+		root->offset_x -= 64;
 	}
-	ft_putendl_fd(ft_strjoin("Steps: ", ft_itoa(++root->player_steps)), 1);
 }
