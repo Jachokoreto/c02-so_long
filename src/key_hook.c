@@ -6,7 +6,7 @@
 /*   By: jatan <jatan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 07:30:30 by jatan             #+#    #+#             */
-/*   Updated: 2022/01/16 12:40:54 by jatan            ###   ########.fr       */
+/*   Updated: 2022/01/16 13:04:23 by jatan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,5 @@ void	wasd_keys(int key, t_root *root)
 			[(root->offset_x + 32) / 64 - 1] != '1')
 			root->offset_x -= 64;
 	}
-	ft_putendl_fd(ft_strjoin("Steps: ",ft_itoa(++root->player_steps)), 1);
+	ft_putendl_fd(ft_strjoin("Steps: ", ft_itoa(++root->player_steps)), 1);
 }
