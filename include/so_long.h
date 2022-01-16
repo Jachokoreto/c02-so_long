@@ -5,7 +5,7 @@
 # include <mlx.h>
 # include <stdio.h>
 
-#define	WIN_SIZE 600
+#define	WIN_SIZE 300
 
 typedef struct s_root
 {
@@ -28,12 +28,13 @@ typedef struct s_root
 
 	int		player_x;
 	int		player_y;
+	int		player_steps;
 
 }				t_root;
 
 
 void	load_images(t_root *root);
-void	load_map(t_root *root);
+void	load_map(t_root *root, char *arg);
 void	draw_map(t_root *root);
 int		key_hook(int keycode, t_root *root);
 int		exit_game(t_root *root);

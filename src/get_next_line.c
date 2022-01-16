@@ -6,7 +6,7 @@
 /*   By: jatan <jatan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/04 22:41:22 by jatan             #+#    #+#             */
-/*   Updated: 2021/08/08 23:58:24 by jatan            ###   ########.fr       */
+/*   Updated: 2022/01/16 10:56:56 by jatan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	join_line(char **line, char *buffer, int *r)
 	if (*buffer && *r > 0)
 	{
 		tmp = *line;
-		*line = ft_strjoin_2(tmp, buffer);
+		*line = ft_strjoin(tmp, buffer);
 		free(tmp);
 	}
 	tmp = ft_strchr(*line, '\n');
