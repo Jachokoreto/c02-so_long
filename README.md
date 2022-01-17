@@ -1,7 +1,8 @@
 This is so_long, so I do not plan to put extra effort into it.
 
-# Some nice tools that are helpful
 
+# Some nice tools that are helpful
+#### Graphics 🎨
 [itcho.io for nice free assets](https://itch.io/game-assets/tag-top-down) - just find one you like and download the pack.
 
 [Sprite cutter](https://ezgif.com/sprite-cutter) - to help you cut out your sprites from the asset pack, remember to cut by tile size, usually 16/32/64.
