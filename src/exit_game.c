@@ -6,13 +6,14 @@
 /*   By: jatan <jatan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 10:54:59 by jatan             #+#    #+#             */
-/*   Updated: 2022/01/17 13:24:05 by jatan            ###   ########.fr       */
+/*   Updated: 2022/01/17 16:36:34 by jatan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 void	destroy_images(t_root *root, void **array, int size);
+void	credits(void);
 
 int	exit_game(t_root *root)
 {
@@ -36,9 +37,8 @@ int	exit_game(t_root *root)
 		free(root->map_data[i]);
 	}
 	mlx_destroy_window(root->mlx, root->mlx_win);
-	ft_putendl_fd("\033[0;32mEXIT GAME", 1);
-	ft_putendl_fd(	
-		"Credit Sprout Lands Asset Pack by Cup Nooble on itch.io", 1);
+	ft_putendl_fd("\033[0;32mEXIT GAME\033[0m", 1);
+	credits();
 	exit(0);
 }
 
@@ -48,7 +48,7 @@ void	exit_error(char *msg, t_root *root, int state)
 
 	if (state >= 0)
 	{
-		perror(ft_strjoin("Error\n", msg));
+		perror(ft_strjoin("\033[0;31mError\033[0m\n", msg));
 	}
 	if (state >= 1)
 	{
@@ -74,4 +74,14 @@ void	destroy_images(t_root *root, void **array, int size)
 		mlx_destroy_image(root->mlx, array[i]);
 		i++;
 	}
+}
+
+void	credits(void)
+{
+	ft_putendl_fd(	
+		"====CREDITS====", 1);
+	ft_putendl_fd(	
+		"Sprout Lands Asset Pack by Cup Nooble on itch.io", 1);
+	ft_putendl_fd(	
+		"Isaac and Jun Han for the help and inspirations", 1);
 }
