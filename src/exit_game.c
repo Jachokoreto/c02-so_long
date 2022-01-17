@@ -6,7 +6,7 @@
 /*   By: jatan <jatan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 10:54:59 by jatan             #+#    #+#             */
-/*   Updated: 2022/01/16 14:55:36 by jatan            ###   ########.fr       */
+/*   Updated: 2022/01/17 13:24:05 by jatan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	exit_game(t_root *root)
 	}
 	mlx_destroy_window(root->mlx, root->mlx_win);
 	ft_putendl_fd("\033[0;32mEXIT GAME", 1);
-	ft_putendl_fd(
+	ft_putendl_fd(	
 		"Credit Sprout Lands Asset Pack by Cup Nooble on itch.io", 1);
 	exit(0);
 }
