@@ -6,7 +6,7 @@
 /*   By: jatan <jatan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 10:54:59 by jatan             #+#    #+#             */
-/*   Updated: 2022/01/17 16:36:34 by jatan            ###   ########.fr       */
+/*   Updated: 2022/01/17 16:43:58 by jatan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,10 @@ void	destroy_images(t_root *root, void **array, int size)
 
 void	credits(void)
 {
-	ft_putendl_fd(	
+	ft_putendl_fd(
 		"====CREDITS====", 1);
-	ft_putendl_fd(	
+	ft_putendl_fd(
 		"Sprout Lands Asset Pack by Cup Nooble on itch.io", 1);
-	ft_putendl_fd(	
+	ft_putendl_fd(
 		"Isaac and Jun Han for the help and inspirations", 1);
 }

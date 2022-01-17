@@ -20,10 +20,7 @@ $(NAME): $(LIBFT) $(OBJ)
 	@echo Run program with ./so_long map/simple.ber
 
 $(LIBFT):
-	@echo "libft.a not available, compiling now..."
 	@make -C libft
-	@echo "${GREEN}libft.a compile successful!${NC}"
-
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(OBJ_DIR)
