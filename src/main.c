@@ -6,7 +6,7 @@
 /*   By: jatan <jatan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 12:27:08 by jatan             #+#    #+#             */
-/*   Updated: 2022/01/16 12:45:52 by jatan            ###   ########.fr       */
+/*   Updated: 2022/01/18 10:14:00 by jatan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	main(int argc, char *argv[])
 	root.mlx_win = mlx_new_window(
 			root.mlx, WIN_SIZE, WIN_SIZE, "so_long");
 	root.player_steps = 0;
+	root.exit_found = 0;
+	root.player_found = 0;
 	load_images(&root);
 	load_map(&root, argv[1]);
 	draw_map(&root);

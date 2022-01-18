@@ -6,7 +6,7 @@
 /*   By: jatan <jatan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 13:01:50 by jatan             #+#    #+#             */
-/*   Updated: 2022/01/16 13:03:36 by jatan            ###   ########.fr       */
+/*   Updated: 2022/01/18 10:13:30 by jatan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ typedef struct s_root
 	int		offset_x;
 	int		offset_y;
 	int		collectible_count;
+	int		exit_found;
+	int		player_found;
 
 	int		player_x;
 	int		player_y;

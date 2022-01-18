@@ -6,7 +6,7 @@
 /*   By: jatan <jatan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 11:11:03 by jatan             #+#    #+#             */
-/*   Updated: 2022/01/16 12:37:11 by jatan            ###   ########.fr       */
+/*   Updated: 2022/01/18 10:15:25 by jatan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,13 +125,17 @@ void	set_map_data(int i, int j, t_root *root)
 		root->map_data[i][j][1] = root->collectible;
 		root->collectible_count++;
 	}
-	else if (root->map[i][j] == 'E')
+	else if (root->map[i][j] == 'E' && root->exit_found == 0)
+	{
 		root->map_data[i][j][1] = root->exit;
-	else if (root->map[i][j] == 'P')
+		root->exit_found = 1;
+	}
+	else if (root->map[i][j] == 'P' && root->player_found == 0)
 	{
 		root->map_data[i][j][1] = NULL;
 		root->offset_x = j * 64;
 		root->offset_y = i * 64;
+		root->player_found = 1;
 	}
 	else
 		root->map_data[i][j][1] = NULL;
